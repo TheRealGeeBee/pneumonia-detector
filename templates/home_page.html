@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center><h2>Upload Your Xray Image</h2></center>
+<p><center>The AI will detect if you have pneumonia through your xray scan result.</center></p>
+
+<form action="{{ url_for('homepage') }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required />
+    <br><br>
+    <button type="submit">Upload</button>
+</form>
+
+<style>
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+    gap: 10px;
+}
+input[type="file"] {
+    padding: 5px;
+}
+button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="results-container">
+
+    <h1 class="results-title">Chest X-Ray Analysis Result</h1>
+
+    <div class="result-card">
+
+        <!-- Prediction Section -->
+        <div class="prediction-section">
+
+            <div class="section-label">Prediction</div>
+
+            <p class="prediction-value
+                {% if prediction == 'PNEUMONIA' %}
+                    pneumonia
+                {% else %}
+                    normal
+                {% endif %}
+            ">
+                {{ prediction }}
+            </p>
+
+        </div>
+
+        <!-- Confidence Section -->
+        <div class="confidence-section">
+
+            <div class="section-label">Model Confidence</div>
+
+            <p class="confidence-value">{{ confidence }}%</p>
+
+            <div class="confidence-bar-container">
+                <div class="confidence-bar"
+                     style="width: {{ confidence }}%;">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Recommendation Section -->
+        <div class="description-section">
+
+            <div class="section-label">Recommendation</div>
+
+            <p class="description-text">
+                {{ description }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="actions">
+        <a href="/" class="upload-again-btn">Analyze Another X-Ray</a>
+    </div>
+
+</div>
+
+{% endblock %}
